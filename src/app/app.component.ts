@@ -3,13 +3,14 @@ import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { map, Observable, Subscription, tap } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { TitreService } from './services/titre.service';
+import { SwitchMergeConcatComponent } from './switch-merge-concat/switch-merge-concat.component';
 
 export type CallBackAvecString = (message: string) => void;
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [AsyncPipe],
+  imports: [AsyncPipe, SwitchMergeConcatComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -36,17 +37,17 @@ ngOnDestroy(): void {
     }).then(callBack);
 
     // LAZY
-    let sub = this.observable$.subscribe({
-      next: callBack,
-      complete: () => console.info('0 => finish')
-    });
-    this.subscription.add(sub);
+    // let sub = this.observable$.subscribe({
+    //   next: callBack,
+    //   complete: () => console.info('0 => finish')
+    // });
+    // this.subscription.add(sub);
 
-    this.observable$.subscribe({
-      next: callBack,
-      complete: () => console.info('0 => finish')
-    });
-    this.subscription.add(sub);
+    // this.observable$.subscribe({
+    //   next: callBack,
+    //   complete: () => console.info('0 => finish')
+    // });
+    //this.subscription.add(sub);
 
     console.info('**************');
   }

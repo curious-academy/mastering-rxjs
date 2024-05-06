@@ -21,7 +21,7 @@ export class TitreService {
     //filter(val => val.substring(0, 2) === 'O1'),
     map(val => val + '!!!!!'),
     tap(val => console.info('TAP 02 => val : ', val)),
-   shareReplay(1)
+    shareReplay(1)
   );
 
   selectOne(): Observable<string> {
