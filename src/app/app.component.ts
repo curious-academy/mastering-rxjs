@@ -1,7 +1,8 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { map, Observable, Subscription, tap } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { TitreService } from './services/titre.service';
 
 export type CallBackAvecString = (message: string) => void;
 
@@ -13,7 +14,7 @@ export type CallBackAvecString = (message: string) => void;
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit, OnDestroy {
-  observable$ !: Observable<string>;
+  observable$ = inject(TitreService).selectOne();
   private subscription = new Subscription();
 
 ngOnDestroy(): void {
@@ -35,24 +36,13 @@ ngOnDestroy(): void {
     }).then(callBack);
 
     // LAZY
-    this.observable$ = new Observable<string>(observer => {
-      console.info('0. OBSERVABLE'); // SYNC
-
-      observer.next('O => STAR WARS'); // SYNC
-      setTimeout(() => {
-        observer.next('O1 => STAR WARS'); // ASYNC
-        console.info('O. je passe bien là')
-        observer.complete();// ASYNC
-      }, 1500);
-      //observer.complete();// SYNC
-    });
     let sub = this.observable$.subscribe({
       next: callBack,
       complete: () => console.info('0 => finish')
     });
     this.subscription.add(sub);
 
-    this.observable$.pipe(takeUntilDestroyed()).subscribe({
+    this.observable$.subscribe({
       next: callBack,
       complete: () => console.info('0 => finish')
     });
