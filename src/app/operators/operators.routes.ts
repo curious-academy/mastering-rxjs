@@ -3,6 +3,7 @@ import { TapComponent } from "./tap/tap.component";
 import { MapComponent } from "./map/map.component";
 import { CatchErrorComponent } from "./catch-error/catch-error.component";
 import { RetryComponent } from "./retry/retry.component";
+import { RetryWhenComponent } from "./retry-when/retry-when.component";
 
 export const operatorsRoutes: Routes = [
   {
@@ -20,5 +21,9 @@ export const operatorsRoutes: Routes = [
   {
     path: 'retry',
     component: RetryComponent
+  },
+  {
+    path: 'retry-when',
+    component: RetryWhenComponent
   }
 ]
