@@ -2,6 +2,7 @@ import { Routes } from "@angular/router";
 import { TapComponent } from "./tap/tap.component";
 import { MapComponent } from "./map/map.component";
 import { CatchErrorComponent } from "./catch-error/catch-error.component";
+import { RetryComponent } from "./retry/retry.component";
 
 export const operatorsRoutes: Routes = [
   {
@@ -15,5 +16,9 @@ export const operatorsRoutes: Routes = [
   {
     path: 'catch-error',
     component: CatchErrorComponent
+  },
+  {
+    path: 'retry',
+    component: RetryComponent
   }
 ]
