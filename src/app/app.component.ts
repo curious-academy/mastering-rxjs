@@ -4,13 +4,14 @@ import { map, Observable, Subscription, tap } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { TitreService } from './services/titre.service';
 import { SwitchMergeConcatComponent } from './switch-merge-concat/switch-merge-concat.component';
+import { AllComponent } from './operators/all/all.component';
 
 export type CallBackAvecString = (message: string) => void;
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [AsyncPipe, SwitchMergeConcatComponent],
+  imports: [AsyncPipe, AllComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
