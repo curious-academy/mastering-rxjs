@@ -1,2 +1,6 @@
 
 <p>{{ scanUse$ | async }}</p>
+
+@for (item of performances$ | async; track item.employeeId) {
+  {{ item.employeeId }} / {{ item.taskCount }}
+}

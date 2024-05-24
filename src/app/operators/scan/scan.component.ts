@@ -1,6 +1,7 @@
 import { AsyncPipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { concatMap, interval, map, of, scan, timer } from 'rxjs';
+import { concatMap, delay, interval, map, of, scan, timer } from 'rxjs';
+import { EmployeePerformance } from './models';
 
 @Component({
   selector: 'app-scan',
@@ -21,4 +22,42 @@ export class ScanComponent {
     scan((acc, value) => [...acc, value], this.numbers),
     concatMap(item => timer(1000).pipe(map(() => item)))
   )
+
+  evaluations$ = of(
+    { employeeId: 'E1', taskId: 'T1', score: 5 },
+    { employeeId: 'E1', taskId: 'T2', score: 3 },
+    { employeeId: 'E2', taskId: 'T3', score: 4 },
+    { employeeId: 'E1', taskId: 'T4', score: 4 },
+    { employeeId: 'E2', taskId: 'T5', score: 5 }
+  ).pipe(delay(1000));
+
+  data: Record<string, EmployeePerformance> = {};
+
+  performances$ = this.evaluations$.pipe(
+    scan((acc, evaluation) => {
+
+      if(! this.data[evaluation.employeeId]){
+        this.data[evaluation.employeeId] = {
+          employeeId: evaluation.employeeId,
+          taskCount: 0,
+          totalScore: 0,
+          weightedAverage: 0
+        }
+      }
+      this.data[evaluation.employeeId].taskCount ++;
+
+      return acc;
+    }, this.data),
+    map(record => {
+      const content = [];
+
+      for(let key in record) {
+        content.push(record[key])
+      }
+
+      return content;
+    }),
+    concatMap(item => timer(1000).pipe(map(() => item)))
+  )
+
 }
