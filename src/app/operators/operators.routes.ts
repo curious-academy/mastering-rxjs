@@ -5,6 +5,8 @@ import { CatchErrorComponent } from "./catch-error/catch-error.component";
 import { RetryComponent } from "./retry/retry.component";
 import { RetryWhenComponent } from "./retry-when/retry-when.component";
 import { ScanComponent } from "./scan/scan.component";
+import { ReduceComponent } from "./reduce/reduce.component";
+import { DebounceTimeComponent } from "./debounce-time/debounce-time.component";
 
 export const operatorsRoutes: Routes = [
   {
@@ -20,6 +22,10 @@ export const operatorsRoutes: Routes = [
     component: ScanComponent
   },
   {
+    path: 'reduce',
+    component: ReduceComponent
+  },
+  {
     path: 'catch-error',
     component: CatchErrorComponent
   },
@@ -30,5 +36,9 @@ export const operatorsRoutes: Routes = [
   {
     path: 'retry-when',
     component: RetryWhenComponent
+  },
+  {
+    path: 'debounce-time',
+    component: DebounceTimeComponent
   }
 ]
