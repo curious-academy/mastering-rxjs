@@ -8,6 +8,7 @@ import { ScanComponent } from "./scan/scan.component";
 import { ReduceComponent } from "./reduce/reduce.component";
 import { DebounceTimeComponent } from "./debounce-time/debounce-time.component";
 import { TakeUntilComponent } from "./take-until/take-until.component";
+import { CombineLatestComponent } from "./combine-latest/combine-latest.component";
 
 export const operatorsRoutes: Routes = [
   {
@@ -45,5 +46,9 @@ export const operatorsRoutes: Routes = [
   {
     path: 'take-until',
     component: TakeUntilComponent
+  },
+  {
+    path: 'combine-latest',
+    component: CombineLatestComponent
   }
 ]
