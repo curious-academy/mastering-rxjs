@@ -7,6 +7,7 @@ import { RetryWhenComponent } from "./retry-when/retry-when.component";
 import { ScanComponent } from "./scan/scan.component";
 import { ReduceComponent } from "./reduce/reduce.component";
 import { DebounceTimeComponent } from "./debounce-time/debounce-time.component";
+import { TakeUntilComponent } from "./take-until/take-until.component";
 
 export const operatorsRoutes: Routes = [
   {
@@ -40,5 +41,9 @@ export const operatorsRoutes: Routes = [
   {
     path: 'debounce-time',
     component: DebounceTimeComponent
+  },
+  {
+    path: 'take-until',
+    component: TakeUntilComponent
   }
 ]
