@@ -1,0 +1,5 @@
+<ul>
+@for (item of people$ | async; track item.name) {
+  <li>{{ item.name }}</li>
+}
+</ul>
