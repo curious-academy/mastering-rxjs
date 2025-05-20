@@ -9,6 +9,7 @@ import { ReduceComponent } from "./reduce/reduce.component";
 import { DebounceTimeComponent } from "./debounce-time/debounce-time.component";
 import { TakeUntilComponent } from "./take-until/take-until.component";
 import { CombineLatestComponent } from "./combine-latest/combine-latest.component";
+import { StartWithComponent } from "./start-with/start-with.component";
 
 export const operatorsRoutes: Routes = [
   {
@@ -50,5 +51,9 @@ export const operatorsRoutes: Routes = [
   {
     path: 'combine-latest',
     component: CombineLatestComponent
+  },
+  {
+    path: 'start-with',
+    component: StartWithComponent
   }
 ]
