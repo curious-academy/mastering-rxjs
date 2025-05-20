@@ -1,6 +1,6 @@
 import { AsyncPipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { interval, map, merge, mergeWith, take } from 'rxjs';
+import { interval, map, merge, mergeWith, Observable, take } from 'rxjs';
 
 @Component({
   selector: 'app-merge',
@@ -19,7 +19,11 @@ export class MergeComponent {
   first$ = interval(2500).pipe(map(i => `First${i}`), take(2));
   //emit every 1 second
   second$ = interval(1000).pipe(map(i => `Second${i}`), take(10));
+
+  third$ = new Observable<string>(observer => {
+  });
+
   //used as instance method
-  example$ = merge(this.first$, this.second$);
+  example$ = merge(this.first$, this.second$, this.third$);
   example2$ = this.first$.pipe(mergeWith(this.second$));  
 }
