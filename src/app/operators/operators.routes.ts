@@ -15,6 +15,7 @@ import { DistinctUntilChangedComponent } from "./distinct-until-changed/distinct
 import { TakeWhileComponent } from "./take-while/take-while.component";
 import { MergeComponent } from "./merge/merge.component";
 import { ConcatComponent } from "./concat/concat.component";
+import { ZipComponent } from "./zip/zip.component";
 
 export const operatorsRoutes: Routes = [
   {
@@ -80,5 +81,9 @@ export const operatorsRoutes: Routes = [
   {
     path: 'concat',
     component: ConcatComponent
+  },
+  {
+    path: 'zip',
+    component: ZipComponent
   }
 ]
