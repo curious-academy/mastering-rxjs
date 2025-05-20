@@ -16,6 +16,7 @@ import { TakeWhileComponent } from "./take-while/take-while.component";
 import { MergeComponent } from "./merge/merge.component";
 import { ConcatComponent } from "./concat/concat.component";
 import { ZipComponent } from "./zip/zip.component";
+import { ForkJoinComponent } from "./fork-join/fork-join.component";
 
 export const operatorsRoutes: Routes = [
   {
@@ -85,5 +86,9 @@ export const operatorsRoutes: Routes = [
   {
     path: 'zip',
     component: ZipComponent
+  },
+  {
+    path: 'forkjoin',
+    component: ForkJoinComponent
   }
 ]
