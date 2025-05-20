@@ -14,6 +14,7 @@ import { DelayComponent } from "./delay/delay.component";
 import { DistinctUntilChangedComponent } from "./distinct-until-changed/distinct-until-changed.component";
 import { TakeWhileComponent } from "./take-while/take-while.component";
 import { MergeComponent } from "./merge/merge.component";
+import { ConcatComponent } from "./concat/concat.component";
 
 export const operatorsRoutes: Routes = [
   {
@@ -76,5 +77,8 @@ export const operatorsRoutes: Routes = [
     path: 'merge',
     component: MergeComponent
   },
-  
+  {
+    path: 'concat',
+    component: ConcatComponent
+  }
 ]
