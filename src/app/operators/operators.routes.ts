@@ -11,6 +11,7 @@ import { TakeUntilComponent } from "./take-until/take-until.component";
 import { CombineLatestComponent } from "./combine-latest/combine-latest.component";
 import { StartWithComponent } from "./start-with/start-with.component";
 import { DelayComponent } from "./delay/delay.component";
+import { DistinctUntilChangedComponent } from "./distinct-until-changed/distinct-until-changed.component";
 
 export const operatorsRoutes: Routes = [
   {
@@ -60,5 +61,9 @@ export const operatorsRoutes: Routes = [
   {
     path: 'delay',
     component: DelayComponent
+  },
+  {
+    path: 'distinct-until-changed',
+    component: DistinctUntilChangedComponent
   }
 ]
