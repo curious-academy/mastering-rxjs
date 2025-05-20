@@ -13,6 +13,7 @@ import { StartWithComponent } from "./start-with/start-with.component";
 import { DelayComponent } from "./delay/delay.component";
 import { DistinctUntilChangedComponent } from "./distinct-until-changed/distinct-until-changed.component";
 import { TakeWhileComponent } from "./take-while/take-while.component";
+import { MergeComponent } from "./merge/merge.component";
 
 export const operatorsRoutes: Routes = [
   {
@@ -70,5 +71,10 @@ export const operatorsRoutes: Routes = [
   {
     path: 'take-while',
     component: TakeWhileComponent
-  }
+  },
+  {
+    path: 'merge',
+    component: MergeComponent
+  },
+  
 ]
