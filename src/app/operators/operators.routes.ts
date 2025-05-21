@@ -17,6 +17,7 @@ import { MergeComponent } from "./merge/merge.component";
 import { ConcatComponent } from "./concat/concat.component";
 import { ZipComponent } from "./zip/zip.component";
 import { ForkJoinComponent } from "./fork-join/fork-join.component";
+import { WithLatestFromComponent } from "./with-latest-from/with-latest-from.component";
 
 export const operatorsRoutes: Routes = [
   {
@@ -90,5 +91,9 @@ export const operatorsRoutes: Routes = [
   {
     path: 'forkjoin',
     component: ForkJoinComponent
-  }
+  },
+  {
+    path: 'withlatestfrom',
+    component: WithLatestFromComponent
+  },
 ]
