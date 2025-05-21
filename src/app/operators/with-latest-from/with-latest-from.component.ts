@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { fromEvent, interval, map, withLatestFrom } from 'rxjs';
+import { fromEvent, interval, map, repeat, startWith, takeUntil, withLatestFrom } from 'rxjs';
 
 @Component({
   selector: 'app-with-latest-from',
@@ -22,14 +22,28 @@ export class WithLatestFromComponent {
 
     // const subscribe = example.subscribe(val => console.log(val));
 
-    const clic$ = fromEvent(document, 'click');
+    // const clic$ = fromEvent(document, 'click');
 
-    // Flux secondaire (données contextuelles qui évoluent dans le temps)
-    const secondes$ = interval(1000).pipe(map((i) => `⏱️ ${i} secondes`));
+    // // Flux secondaire (données contextuelles qui évoluent dans le temps)
+    // const secondes$ = interval(1000).pipe(map((i) => `⏱️ ${i} secondes`));
 
-    // Chaque clic récupère la dernière valeur connue du timer
-    clic$.pipe(withLatestFrom(secondes$)).subscribe(([event, timerVal]) => {
-      console.log('🖱️ Clic détecté à :', timerVal);
+    // // Chaque clic récupère la dernière valeur connue du timer
+    // clic$.pipe(withLatestFrom(secondes$)).subscribe(([event, timerVal]) => {
+    //   console.log('🖱️ Clic détecté à :', timerVal);
+    // });
+
+    const loop$ = interval(100).pipe(
+      withLatestFrom(
+        fromEvent(document, 'keydown').pipe(
+          startWith({ code: '' }),
+          takeUntil(fromEvent(document, 'keyup')),
+          repeat()
+        )
+      )
+    );
+
+    loop$.subscribe(([i, event]) => {
+      console.log('🔁', i, event);
     });
   }
 }
