@@ -18,6 +18,7 @@ import { ConcatComponent } from "./concat/concat.component";
 import { ZipComponent } from "./zip/zip.component";
 import { ForkJoinComponent } from "./fork-join/fork-join.component";
 import { WithLatestFromComponent } from "./with-latest-from/with-latest-from.component";
+import { ReplaySubjectComponent } from "../tools/replay-subject/replay-subject.component";
 
 export const operatorsRoutes: Routes = [
   {
@@ -95,5 +96,5 @@ export const operatorsRoutes: Routes = [
   {
     path: 'withlatestfrom',
     component: WithLatestFromComponent
-  },
+  }
 ]
