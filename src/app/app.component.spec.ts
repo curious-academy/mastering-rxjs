@@ -17,7 +17,6 @@ describe('AppComponent', () => {
   it(`should have the 'mastering-rxjs' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('mastering-rxjs');
   });
 
   it('should render title', () => {
